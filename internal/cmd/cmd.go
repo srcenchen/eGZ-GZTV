@@ -10,9 +10,9 @@ import (
 
 var (
 	Main = gcmd.Command{
-		Name:  "main",
-		Usage: "main",
-		Brief: "start http server",
+		Name:  "start",
+		Usage: "start",
+		Brief: "start gztv server",
 		Func: func(ctx context.Context, parser *gcmd.Parser) (err error) {
 			s := g.Server()
 			s.Group("/", func(group *ghttp.RouterGroup) {
