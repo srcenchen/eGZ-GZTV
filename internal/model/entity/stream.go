@@ -20,4 +20,5 @@ type LiveTable struct {
 	StreamName  string `gorm:"type:varchar(255);not null"`
 	HeadImage   string `gorm:"type:varchar(255);not null"`
 	SubmitDate  string `gorm:"type:dateTime;not null"`
+	LiveState   bool   `gorm:"type:boolean;not null"`
 }
