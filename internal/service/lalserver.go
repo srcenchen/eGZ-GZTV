@@ -13,6 +13,7 @@ import (
 	"fmt"
 	"github.com/q191201771/naza/pkg/nazalog"
 	"os"
+	"path/filepath"
 
 	"github.com/q191201771/lal/pkg/base"
 
@@ -24,6 +25,10 @@ func StreamServer() {
 	defer nazalog.Sync()
 
 	confFilename := parseFlag()
+	logic.DefaultConfFilenameList = []string{
+		filepath.FromSlash("./conf/lalserver.conf.json"),
+		filepath.FromSlash("./manifest/conf/lalserver.conf.json"),
+	}
 	lals := logic.NewLalServer(func(option *logic.Option) {
 		option.ConfFilename = confFilename
 	})

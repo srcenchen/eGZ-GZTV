@@ -15,7 +15,7 @@ var (
 		Usage: "start",
 		Brief: "start gztv server",
 		Func: func(ctx context.Context, parser *gcmd.Parser) (err error) {
-			service.StreamServer() // 启动流媒体直播服务器
+			go service.StreamServer() // 启动流媒体直播服务器
 			s := g.Server()
 			s.Group("/", func(group *ghttp.RouterGroup) {
 				group.Middleware(ghttp.MiddlewareHandlerResponse)
