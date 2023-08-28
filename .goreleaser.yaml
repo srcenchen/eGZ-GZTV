@@ -6,25 +6,28 @@ before:
     - go mod tidy
     # you may remove this if you don't need go generate
     - go generate ./...
+    - mv manifest/conf ./
 builds:
   - env:
       - CGO_ENABLED=0
     goos:
       - linux
       - windows
-      - darwin
     goarch:
       - amd64
       - arm64
+    ignore:
+      - goos: windows
+        goarch: arm64
+
     binary: gztv
 
 archives:
   - format: tar.gz
     # copy WebUI to the root of the archive
     files:
-      - manifest/config/*
       - resource/public/**/*
-      - manifest/conf/*
+      - conf/**/*
     # this name template makes the OS and Arch compatible with the results of uname.
     name_template: >-
       {{ .ProjectName }}_
@@ -42,13 +45,12 @@ dockers:
   - image_templates:
       - "registry.cn-hangzhou.aliyuncs.com/sanenchen/gztv:{{ .Tag }}-amd64"
       - "registry.cn-hangzhou.aliyuncs.com/sanenchen/gztv:least-amd64"
-    dockerfile: Dockerfile
+    dockerfile: manifest/docker/Dockerfile
     build_flag_templates:
       - "--platform=linux/amd64"
     extra_files:
       - resource/public
-      - manifest/conf
-      - manifest/config
+      - conf/
 
 checksum:
   name_template: 'checksums.txt'
