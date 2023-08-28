@@ -11,18 +11,18 @@ type LoginVerifyReq struct {
 
 // LoginVerifyRes /** 登录验证
 type LoginVerifyRes struct {
-	g.Meta `method:"POST" summary:"登录验证" tags:"用户"`
-	Token  string `json:"token"` // token
+	g.Meta    `method:"POST" summary:"登录验证" tags:"用户"`
+	IsSuccess bool `json:"isSuccess"` // token
 }
 
 // ChangePasswordReq /** 修改密码
 type ChangePasswordReq struct {
-	g.Meta      `method:"POST" summary:"修改密码" tags:"用户"`
-	OldPassword string `v:"required#旧密码不能为空"` // 旧密码
+	g.Meta      `method:"GET" summary:"修改密码" tags:"用户"`
+	Username    string `v:"required#用户名不能为空"` // 用户名
 	NewPassword string `v:"required#新密码不能为空"` // 新密码
 }
 
 // ChangePasswordRes /** 修改密码
 type ChangePasswordRes struct {
-	g.Meta `method:"POST" summary:"修改密码" tags:"用户"`
+	g.Meta `method:"GET" summary:"修改密码" tags:"用户"`
 }

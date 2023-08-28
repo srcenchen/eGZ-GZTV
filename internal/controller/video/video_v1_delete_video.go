@@ -2,13 +2,20 @@ package video
 
 import (
 	"context"
-
-	"github.com/gogf/gf/v2/errors/gcode"
-	"github.com/gogf/gf/v2/errors/gerror"
+	"eGZ-GZTV/internal/dao"
+	"os"
 
 	"eGZ-GZTV/api/video/v1"
 )
 
-func (c *ControllerV1) DeleteVideo(ctx context.Context, req *v1.DeleteVideoReq) (res *v1.DeleteVideoRes, err error) {
-	return nil, gerror.NewCode(gcode.CodeNotImplemented)
+func (c *ControllerV1) DeleteVideo(_ context.Context, req *v1.DeleteVideoReq) (res *v1.DeleteVideoRes, err error) {
+	// 获取视频信息
+	video := dao.GetVideoByID(req.Id)
+	// 删除视频
+	_ = os.Remove("./resource/upload/videos/" + video.VideoName)
+	// 删除封面
+	_ = os.Remove("./resource/upload/images/" + video.HeadImage)
+
+	dao.DeleteVideoByID(req.Id)
+	return
 }

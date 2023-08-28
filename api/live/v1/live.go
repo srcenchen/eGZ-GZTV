@@ -19,7 +19,7 @@ type GetLiveListRes struct {
 // GetLiveReq /** 获取直播
 type GetLiveReq struct {
 	g.Meta `method:"GET" summary:"获取直播" tags:"直播"`
-	Id     int `v:"required#直播ID不能为空"` // 直播ID
+	Id     string `v:"required#直播ID不能为空"` // 直播ID
 }
 
 // GetLiveRes /** 获取直播
@@ -44,7 +44,7 @@ type AddLiveRes struct {
 // DeleteLiveReq /** 删除直播
 type DeleteLiveReq struct {
 	g.Meta `method:"POST" summary:"删除直播" tags:"直播"`
-	Id     int `v:"required#直播ID不能为空"` // 直播ID
+	Id     string `v:"required#直播ID不能为空"` // 直播ID
 }
 
 // DeleteLiveRes /** 删除直播

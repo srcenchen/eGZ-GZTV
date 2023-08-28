@@ -2,13 +2,17 @@ package live
 
 import (
 	"context"
-
-	"github.com/gogf/gf/v2/errors/gcode"
-	"github.com/gogf/gf/v2/errors/gerror"
+	"eGZ-GZTV/internal/dao"
+	"strconv"
+	"time"
 
 	"eGZ-GZTV/api/live/v1"
 )
 
-func (c *ControllerV1) AddLive(ctx context.Context, req *v1.AddLiveReq) (res *v1.AddLiveRes, err error) {
-	return nil, gerror.NewCode(gcode.CodeNotImplemented)
+func (c *ControllerV1) AddLive(_ context.Context, req *v1.AddLiveReq) (res *v1.AddLiveRes, err error) {
+	timeUnix := time.Now().UnixNano()
+	t := time.Now()
+	uploadDate := t.Format("2006-01-02 15:04:05")
+	dao.AddLive(req.Title, "liveGZTV", strconv.FormatInt(timeUnix, 10), req.HeadImage, req.Description, uploadDate)
+	return
 }
