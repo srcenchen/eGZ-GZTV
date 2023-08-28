@@ -1,0 +1,35 @@
+name: build_dev
+
+on: 
+  push:
+    tags:
+      - '*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up Go
+        uses: actions/setup-go@v3
+      - name: Login Docker
+        uses: docker/login-action@v1
+        with:
+          registry: registry.cn-hangzhou.aliyuncs.com
+          username: ${{ secrets.DOCKER_USERNAME_ALIYUN }}
+          password: ${{ secrets.DOCKER_PASSWORD_ALIYUN }}
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v4
+        with:
+          # either 'goreleaser' (default) or 'goreleaser-pro'
+          distribution: goreleaser
+          version: latest
+          args: release --clean
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
