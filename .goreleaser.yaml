@@ -27,7 +27,7 @@ archives:
     # copy WebUI to the root of the archive
     files:
       - public/**/*
-      - conf/**/*
+      - conf/*
     # this name template makes the OS and Arch compatible with the results of uname.
     name_template: >-
       {{ .ProjectName }}_
