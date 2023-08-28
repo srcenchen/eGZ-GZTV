@@ -4,10 +4,10 @@ ENV TZ=Asia/Shanghai
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 # 复制主文件
 COPY gztv /gztv/gztv
-# resource
-COPY resource /gztv/resource
 # 复制配置文件
 COPY conf /gztv/conf
+# 复制public文件
+COPY public /gztv/public
 # 进入工作目录
 WORKDIR /gztv
 # 设置时区
