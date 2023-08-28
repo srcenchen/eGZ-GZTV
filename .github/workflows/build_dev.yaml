@@ -1,7 +1,7 @@
 name: build_dev
 on:
   push:
-    branches: [ 'main' ]
+    branches: [ '**' ]
 permissions:
   contents: write
 
