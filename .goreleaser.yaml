@@ -4,7 +4,7 @@ before:
   hooks:
     # You may remove this if you don't use go modules.
     - go mod tidy
-    - ls
+    - mv manifest/conf ./conf
     - wget https://github.com/srcenchen/GZTV-front/releases/latest/download/public.tar.gz
     - tar -zxvf public.tar.gz
 builds:
