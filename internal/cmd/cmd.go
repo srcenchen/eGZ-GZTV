@@ -4,6 +4,7 @@ import (
 	"context"
 	"eGZ-GZTV/internal/controller/live"
 	"eGZ-GZTV/internal/controller/setting"
+	"eGZ-GZTV/internal/controller/upload"
 	"eGZ-GZTV/internal/controller/user"
 	"eGZ-GZTV/internal/controller/video"
 	"eGZ-GZTV/internal/service"
@@ -49,6 +50,13 @@ var (
 				group.Middleware(ghttp.MiddlewareHandlerResponse)
 				group.Bind(
 					live.NewV1(),
+				)
+			})
+
+			api.Group("/upload", func(group *ghttp.RouterGroup) {
+				group.Middleware(ghttp.MiddlewareHandlerResponse)
+				group.Bind(
+					upload.NewV1(),
 				)
 			})
 
