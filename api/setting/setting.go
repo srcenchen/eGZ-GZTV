@@ -15,6 +15,7 @@ type ISettingV1 interface {
 	SetNotice(ctx context.Context, req *v1.SetNoticeReq) (res *v1.SetNoticeRes, err error)
 	GetPullSetting(ctx context.Context, req *v1.GetPullSettingReq) (res *v1.GetPullSettingRes, err error)
 	SetPullSetting(ctx context.Context, req *v1.SetPullSettingReq) (res *v1.SetPullSettingRes, err error)
+	GetVersion(ctx context.Context, req *v1.GetVersionReq) (res *v1.GetVersionRes, err error)
 }
 
 
