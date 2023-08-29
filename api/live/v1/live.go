@@ -26,6 +26,7 @@ type GetLiveReq struct {
 type GetLiveRes struct {
 	g.Meta `method:"GET" summary:"获取直播" tags:"直播"`
 	Live   entity.LiveTable `json:"live"` // 直播
+	Pull   string           `json:"pull"` // 拉流方式
 }
 
 // AddLiveReq /** 添加直播

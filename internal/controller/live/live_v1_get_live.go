@@ -26,6 +26,7 @@ func (c *ControllerV1) GetLive(_ context.Context, req *v1.GetLiveReq) (res *v1.G
 
 	res = &v1.GetLiveRes{
 		Live: result,
+		Pull: dao.GetPull(),
 	}
 	return
 }
