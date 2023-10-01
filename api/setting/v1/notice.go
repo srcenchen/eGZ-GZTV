@@ -16,7 +16,7 @@ type GetNoticeRes struct {
 // SetNoticeReq /** 设置公告
 type SetNoticeReq struct {
 	g.Meta `method:"GET" summary:"设置公告" tags:"设置"`
-	Notice string `v:"required#公告不能为空"` // 公告
+	Notice string // 公告
 }
 
 // SetNoticeRes /** 设置公告
