@@ -96,6 +96,8 @@ type EditVideoDetailReq struct {
 	Title       string `v:"required#标题不能为空"`      // 标题
 	Description string `v:"required#描述不能为空"`      // 描述
 	GroupID     int    `v:"required#GroupID不能为空"` // GroupID
+	IsHideMain  bool   `v:"required#IsHideMain"`  // IsHideMain
+	IsHideGroup bool   `v:"required#IsHideGroup"` // IsHideGroup
 }
 
 // EditVideoDetailRes /** 修改视频信息

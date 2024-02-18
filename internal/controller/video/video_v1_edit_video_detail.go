@@ -13,6 +13,8 @@ func (c *ControllerV1) EditVideoDetail(ctx context.Context, req *v1.EditVideoDet
 	video.Title = req.Title
 	video.GroupId = req.GroupID
 	video.Description = req.Description
+	video.IsHideMain = req.IsHideMain
+	video.IsHideGroup = req.IsHideGroup
 	model.GetDatabase().Save(&video)
 	return
 }
