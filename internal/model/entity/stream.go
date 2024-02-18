@@ -9,6 +9,8 @@ type VideoTable struct {
 	HeadImage   string `gorm:"column:head_image;type:varchar(255);not null"`
 	UploadDate  string `gorm:"column:upload_date;type:dateTime;not null"`
 	ViewCount   int    `gorm:"column:view_count;type:int;not null"`
+	IsHideMain  bool   `gorm:"column:is_hiden_main;type:boolean;not null;default:false"`
+	IsHideGroup bool   `gorm:"column:is_hiden_group;type:boolean;not null;default:false"`
 	GroupId     int    `gorm:"column:group_id;type:int;not null"` // -1 表示这是个视频组，-2表示没分组
 }
 
