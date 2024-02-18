@@ -17,7 +17,6 @@ var (
 			go service.StreamServer() // 启动流媒体直播服务器
 			s := g.Server()
 			controller.Router(s)
-
 			s.Run()
 			return nil
 		},
