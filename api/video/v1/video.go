@@ -35,7 +35,7 @@ type AddVideoReq struct {
 	Description string `v:"required#描述不能为空"` // 描述
 	VideoName   string `v:"required#视频不能为空"` // 视频名称
 	HeadImage   string `v:"required#封面不能为空"` // 封面
-	GroupId     int    `v:""`                // 视频组
+	GroupId     int    ``                    // 视频组
 }
 
 // AddVideoRes /** 添加视频

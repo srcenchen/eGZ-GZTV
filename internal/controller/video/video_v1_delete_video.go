@@ -26,7 +26,7 @@ func (c *ControllerV1) DeleteVideo(_ context.Context, req *v1.DeleteVideoReq) (r
 			// 修改视频的分组为未分组
 			v.GroupId = -2
 			// 保存视频
-			model.GetDatabase().Save(&video)
+			model.GetDatabase().Save(&v)
 		}
 	}
 
