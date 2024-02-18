@@ -1,3 +1,3 @@
 package consts
 
-const Version = "v1.5.0"
+const Version = "v1.5.1"
