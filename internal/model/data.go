@@ -20,7 +20,7 @@ func GetDatabase() *gorm.DB {
 // InitData /**
 func InitData() {
 	// 自动迁移模式
-	if GetDatabase().AutoMigrate(&entity.VideoTable{}, &entity.LiveTable{}, &entity.UserTable{}, &entity.SettingTable{}) != nil {
+	if GetDatabase().AutoMigrate(&entity.VideoTable{}, &entity.LiveTable{}, &entity.UserTable{}, &entity.SettingTable{}, &entity.GroupTable{}) != nil {
 		panic("failed to migrate database")
 	}
 	// 判断是否已经初始化过

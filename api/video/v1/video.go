@@ -57,13 +57,25 @@ type DeleteVideoRes struct {
 // AddVideoGroupReq /** 添加视频组
 type AddVideoGroupReq struct {
 	g.Meta      `method:"POST" summary:"添加视频组" tags:"视频"`
-	Title       string `v:"required#标题不能为空"` // 标题
-	Description string `v:"required#描述不能为空"` // 描述
+	Title       string `v:"required#标题不能为空"`  // 标题
+	Description string `v:"required#描述不能为空"`  // 描述
+	ParentGroup string `v:"required#父分类不能为空"` // 描述
 }
 
 // AddVideoGroupRes /** 添加视频组
 type AddVideoGroupRes struct {
 	g.Meta `method:"POST" summary:"添加视频组" tags:"视频"`
+}
+
+// DelVideoGroupReq /** 删除视频组
+type DelVideoGroupReq struct {
+	g.Meta `method:"POST" summary:"删除视频组" tags:"视频"`
+	Id     string `v:"required#Id不能为空"` // id
+}
+
+// DelVideoGroupRes /** 删除视频组
+type DelVideoGroupRes struct {
+	g.Meta `method:"POST" summary:"删除视频组" tags:"视频"`
 }
 
 // GetVideoGroupListReq /** 获取视频组列表
@@ -74,7 +86,7 @@ type GetVideoGroupListReq struct {
 // GetVideoGroupListRes /** 获取视频组列表
 type GetVideoGroupListRes struct {
 	g.Meta `method:"GET" summary:"获取视频组列表" tags:"视频"`
-	List   []entity.VideoTable `json:"list"` // 视频列表
+	List   []entity.GroupTable `json:"list"` // 视频列表
 }
 
 // GetVideoGroupReq /** 获取视频组
@@ -86,7 +98,7 @@ type GetVideoGroupReq struct {
 // GetVideoGroupRes /** 获取视频组
 type GetVideoGroupRes struct {
 	g.Meta `method:"GET" summary:"获取视频组" tags:"视频"`
-	List   []entity.VideoTable `json:"list"` // 视频列表
+	List   entity.GroupTable `json:"list"` // 视频列表
 }
 
 // EditVideoDetailReq /** 修改视频信息

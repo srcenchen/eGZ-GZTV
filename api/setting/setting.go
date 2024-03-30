@@ -1,12 +1,12 @@
 // =================================================================================
-// Code generated and maintained by GoFrame CLI tool. DO NOT EDIT. 
+// Code generated and maintained by GoFrame CLI tool. DO NOT EDIT.
 // =================================================================================
 
 package setting
 
 import (
 	"context"
-	
+
 	"eGZ-GZTV/api/setting/v1"
 )
 
@@ -17,5 +17,3 @@ type ISettingV1 interface {
 	SetPullSetting(ctx context.Context, req *v1.SetPullSettingReq) (res *v1.SetPullSettingRes, err error)
 	GetVersion(ctx context.Context, req *v1.GetVersionReq) (res *v1.GetVersionRes, err error)
 }
-
-
