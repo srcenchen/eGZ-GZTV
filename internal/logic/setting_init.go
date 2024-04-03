@@ -19,4 +19,11 @@ func SettingInit() {
 		// 初始化设置
 		model.GetDatabase().Create(&entity.SettingTable{Key: "pull", Value: "HLS-M3U8"})
 	}
+
+	// 是否存在标题
+	result = model.GetDatabase().Where("key = ?", "title").First(&settingTable)
+	if result.RowsAffected == 0 {
+		// 初始化设置
+		model.GetDatabase().Create(&entity.SettingTable{Key: "title", Value: "赣中电视台"})
+	}
 }

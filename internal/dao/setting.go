@@ -34,3 +34,18 @@ func SetPull(pull string) {
 	settingTable.Value = pull
 	model.GetDatabase().Save(&settingTable)
 }
+
+// GetTitle 获取默认拉流方式
+func GetTitle() string {
+	var settingTable entity.SettingTable
+	model.GetDatabase().Where("key = ?", "title").First(&settingTable)
+	return settingTable.Value
+}
+
+// SetTitle 设置默认拉流方式
+func SetTitle(title string) {
+	var settingTable entity.SettingTable
+	model.GetDatabase().Where("key = ?", "title").First(&settingTable)
+	settingTable.Value = title
+	model.GetDatabase().Save(&settingTable)
+}
