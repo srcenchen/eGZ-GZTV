@@ -13,11 +13,12 @@ func FileNameEncode(fileName string) string {
 	timeUnix := time.Now().Unix()
 	// 脱敏
 	// 随机数种子
-	rand.Seed(time.Now().UnixNano())
+	rand.New(rand.NewSource(time.Now().Unix()))
 	fileID := strconv.FormatInt(timeUnix, 10) + strconv.Itoa(rand.Intn(1000))
 	// 拆分文件名和后缀
 	fileSuffix := fileName[strings.LastIndex(fileName, "."):]
+	fileName = fileName[:strings.LastIndex(fileName, ".")]
 	// 拼接新的文件名
-	newFileName := fileID + fileSuffix
+	newFileName := fileID + "_" + fileName + fileSuffix
 	return newFileName
 }
