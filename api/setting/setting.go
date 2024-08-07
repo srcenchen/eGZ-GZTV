@@ -11,6 +11,8 @@ import (
 )
 
 type ISettingV1 interface {
+	GetFooter(ctx context.Context, req *v1.GetFooterReq) (res *v1.GetFooterRes, err error)
+	SetFooter(ctx context.Context, req *v1.SetFooterReq) (res *v1.SetFooterRes, err error)
 	GetNotice(ctx context.Context, req *v1.GetNoticeReq) (res *v1.GetNoticeRes, err error)
 	SetNotice(ctx context.Context, req *v1.SetNoticeReq) (res *v1.SetNoticeRes, err error)
 	GetPullSetting(ctx context.Context, req *v1.GetPullSettingReq) (res *v1.GetPullSettingRes, err error)

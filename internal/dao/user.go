@@ -17,3 +17,21 @@ func ChangePassword(username string, password string) {
 	userTable.Password = password
 	model.GetDatabase().Save(&userTable)
 }
+
+// GetUserList 获取所有用户
+func GetUserList() []entity.UserTable {
+	var groupTable []entity.UserTable
+	model.GetDatabase().Find(&groupTable)
+	return groupTable
+}
+
+// AddUser 添加分组
+func AddUser(username string, password string) {
+	model.GetDatabase().Create(&entity.UserTable{Username: username, Password: password})
+}
+
+// DeleteUserByID 根据id删除User
+func DeleteUserByID(id string) {
+	var userTable entity.UserTable
+	model.GetDatabase().Where("id = ?", id).Delete(&userTable)
+}

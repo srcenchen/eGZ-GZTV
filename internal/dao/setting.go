@@ -35,17 +35,32 @@ func SetPull(pull string) {
 	model.GetDatabase().Save(&settingTable)
 }
 
-// GetTitle 获取默认拉流方式
+// GetTitle 获取默认
 func GetTitle() string {
 	var settingTable entity.SettingTable
 	model.GetDatabase().Where("key = ?", "title").First(&settingTable)
 	return settingTable.Value
 }
 
-// SetTitle 设置默认拉流方式
+// SetTitle 设置
 func SetTitle(title string) {
 	var settingTable entity.SettingTable
 	model.GetDatabase().Where("key = ?", "title").First(&settingTable)
 	settingTable.Value = title
+	model.GetDatabase().Save(&settingTable)
+}
+
+// GetFooter 获取默认
+func GetFooter() string {
+	var settingTable entity.SettingTable
+	model.GetDatabase().Where("key = ?", "footer").First(&settingTable)
+	return settingTable.Value
+}
+
+// SetFooter 设置
+func SetFooter(footer string) {
+	var settingTable entity.SettingTable
+	model.GetDatabase().Where("key = ?", "footer").First(&settingTable)
+	settingTable.Value = footer
 	model.GetDatabase().Save(&settingTable)
 }

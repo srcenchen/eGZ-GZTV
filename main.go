@@ -19,6 +19,7 @@ func main() {
 	initPath()          // 初始化文件夹
 	model.InitData()    // 初始化数据库
 	logic.SettingInit() // 初始化设置
+
 	cmd.Main.Run(gctx.GetInitCtx())
 }
 
