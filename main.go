@@ -7,9 +7,8 @@ import (
 	_ "eGZ-GZTV/internal/packed"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/os/gcfg"
-	"os"
-
 	"github.com/gogf/gf/v2/os/gctx"
+	"os"
 )
 
 func main() {

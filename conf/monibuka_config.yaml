@@ -1,0 +1,15 @@
+global:
+  disableall: false # 是否禁用所有插件
+  loglang: zh # 日志语言，可选值：zh,en
+  loglevel: info # 日志级别，可选值：debug,info,warn,error,panic,fatal
+  http:
+    cors: true  # 是否自动添加cors头
+  publish:
+    publishtimeout: 315360000s # 发布流默认过期时间，超过该时间发布者没有恢复流将被删除
+    idletimeout: 315360000s # 发布者空闲超时时间，超过该时间发布者没有任何操作将被删除，0为关闭该功能
+    delayclosetimeout: 315360000s # 自动关闭触发后延迟的时间(期间内如果有新的订阅则取消触发关闭)，0为关闭该功能，保持连接。
+    waitclosetimeout: 315360000s # 发布者断开后等待时间，超过该时间发布者没有恢复流将被删除，0为关闭该功能，由订阅者决定是否删除
+
+hls:
+  http:
+    cors: true  # 是否自动添加cors头
